@@ -1,0 +1,11 @@
+.company {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.plus{
+    width:200px;
+    height:200px;
+    background-image: url("../../assets/images/plus.png");
+}

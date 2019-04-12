@@ -1,0 +1,45 @@
+.company {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.plus {
+    width:150px;
+    height:150px;
+    background-image: url("../../assets/images/plus.png");
+    background-size: cover;
+    background-color: #e9ecef;
+    border-style: none;
+    border-color: #e9ecef;
+    opacity: 0.8;
+}
+
+.minus {
+    width:150px;
+    height:150px;
+    background-image: url("../../assets/images/minus.png");
+    background-size: cover;
+    background-color: #e9ecef;
+    border-style: none;
+    border-color: #e9ecef;
+    opacity: 0.8;
+}
+
+.plus:hover {
+    opacity: 1;
+}
+
+.minus:hover {
+    opacity: 1;
+}
+
+.plus_minus {
+    margin-top: 100px;
+}
+
+.setting {
+    margin:50px 50px 50px 0;
+    width: 200px;
+    font-size: 20px;
+}

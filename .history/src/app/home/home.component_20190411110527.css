@@ -1,0 +1,29 @@
+.company {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.plus {
+    width:150px;
+    height:150px;
+    background-image: url("../../assets/images/plus.png");
+    background-size: cover;
+    background-color: #e9ecef;
+    border-style: none;
+    border-color: #e9ecef;
+    opacity: 1;
+}
+
+.minus {
+    width:150px;
+    height:150px;
+    background-image: url("../../assets/images/minus.png");
+    background-size: cover;
+    background-color: #e9ecef;
+    border:0px;
+}
+
+.plus:hover {
+    opacity: 1;
+}
