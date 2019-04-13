@@ -1,0 +1,13 @@
+.option {
+    background-color:  #673ab7;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+ }
+
+.setting {
+    color: white;
+}
+.option_card {
+    display: inline-grid;
+}

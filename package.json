@@ -24,8 +24,10 @@
     "@angular/router": "^6.0.3",
     "@material-ui/core": "^3.9.3",
     "core-js": "^2.5.4",
+    "file-saver": "^2.0.1",
     "jquery": "^3.4.0",
     "rxjs": "^6.0.0",
+    "xlsx": "^0.14.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

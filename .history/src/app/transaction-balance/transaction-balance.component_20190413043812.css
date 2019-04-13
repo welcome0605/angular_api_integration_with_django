@@ -1,0 +1,22 @@
+.option {
+    background-color:  #673ab7;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+ }
+
+.setting {
+    color: white;
+}
+.option_card {
+    display: inline-grid;
+    margin: 30px 0 0 100px;
+    border: 1px double #673ab7;
+    width: 200px;
+    padding:10px;
+    /* margin: */
+}
+
+.option_buttons {
+    margin-bottom: 10px;
+}
