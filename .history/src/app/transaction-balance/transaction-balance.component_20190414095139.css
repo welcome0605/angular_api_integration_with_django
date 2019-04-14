@@ -1,0 +1,95 @@
+.option {
+    background-color:  #673ab7;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+ }
+
+.setting {
+    color: white;
+}
+.option_card {
+    display: inline-grid;
+    margin: 30px 0 0 100px;
+    border: 1px double blue;
+    width: 200px;
+    padding:10px;
+    /* margin: */
+}
+
+.option_buttons {
+    margin-bottom: 10px;
+}
+
+.d_last {
+    width: 500px;
+    margin: 50px auto 0 auto;
+}
+
+table {
+    width: 100%;
+  }
+  
+.filter {
+    width: 500px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.btn_add {
+    margin: 50px auto;
+    font-size: 20px;
+}
+
+.icon_plus {
+    color: white;
+}
+
+.show_table {
+    text-align: center;
+}
+
+.balance_excel {
+    margin-top: 50px;
+}
+
+.btn_remove {
+    background-color: #e83e8c;
+    color: white;
+    border-style: none;
+    border-color: #e9ecef;
+    font-size: 15px;
+}
+
+.btn_balance {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.account_detail {
+    text-align:center;
+}
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  

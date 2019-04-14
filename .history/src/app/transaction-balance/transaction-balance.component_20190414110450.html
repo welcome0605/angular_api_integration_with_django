@@ -1,0 +1,380 @@
+<h3>Please Do Anything You Want</h3>
+
+
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Transaction">
+    <div class="container">
+      <div class="row" style="margin:0 0 0 100px;">
+        <div class="col-md-4" style="margin-top:60px;">
+          <mat-form-field>
+            <mat-label>Change Currency</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option value="option1">Currency 1</mat-option>
+              <mat-option value="option2">Currency 2</mat-option>
+              <mat-option value="option3">Currency 3</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Change Year</mat-label>
+            <mat-select>
+              <mat-option>None</mat-option>
+              <mat-option value="option1">2017</mat-option>
+              <mat-option value="option2">2018</mat-option>
+              <mat-option value="option3">2019</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2" style="margin:65px 0 0 0; ">
+            <button class="btn option" (click)="hide = !hide"><i class="fa fa-cog fa-5x setting" aria-hidden="true"></i></button>
+        </div>
+        <div class="col-md-6">
+          <div class="option_card" [hidden]="!hide">
+              <button mat-stroked-button color="primary" class="option_buttons">Open Period</button>
+              <button mat-stroked-button color="primary" class="option_buttons">Close Period</button>
+              <button mat-stroked-button color="primary" class="option_buttons">Import from Excel</button>
+              <button mat-stroked-button color="primary" class="option_buttons">Export to Excel</button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <mat-form-field class="d_last">
+          <mat-label>Display Last</mat-label>
+          <mat-select>
+            <mat-option>None</mat-option>
+            <mat-option value="option1">#1</mat-option>
+            <mat-option value="option2">#2</mat-option>
+            <mat-option value="option3">#3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="row show_table">
+            <div class="row">
+              <div class="col-md-12 mx-auto">
+                <div class="md-form">
+                  <input type="text" class="form-control" id="search" mdbInput placeholder="Filter" (keyup)="applyFilter($event.target.value)">
+                  <!-- <label for="search">Search</label> -->
+                </div>
+              </div>
+            </div>
+            <table mdbTable class="table table-bordered table-responsive-md table-striped text-center">
+              <thead>
+                <tr>
+                  <th *ngFor="let head of headElements; let i = index" scope="col">{{head}}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let el of elements; let i = index">
+                  <th scope="row">{{el.Unique_ID}}</th>
+                  <td class="red-text">{{el.Entry_Date}}</td>
+                  <td>{{el._Date}}</td>
+                  <td>{{el.Description}}</td>
+
+                  Unique_ID: number;
+                  Entry_Date: string;
+                  _Date: string;
+                  Description: string;
+                  Dr_Account: number;
+                  Dr_Name: string;
+                  Cr_Account: number;
+                  Cr_Name: string;
+                  Amount: number;
+                  Curreny: string;
+                  Curreny_Rate: number;
+                  _Document: string;
+                  Comment: string;
+                </tr>
+              </tbody>
+            </table>
+            
+        <!-- <mat-form-field class="filter">
+          <input class="input_filter" matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table1">
+          <ng-container matColumnDef="Unique_ID">
+            <th mat-header-cell *matHeaderCellDef> Unique_ID. </th>
+            <td mat-cell *matCellDef="let element"> {{element.Unique_ID}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="Entry_Date">
+            <th mat-header-cell *matHeaderCellDef> Entry_Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.Entry_Date}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="_Date">
+            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element._Date}} </td>
+          </ng-container>
+        
+          <ng-container matColumnDef="Description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Dr_Account">
+            <th mat-header-cell *matHeaderCellDef> Dr_Account </th>
+            <td mat-cell *matCellDef="let element"> {{element.Dr_Account}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Dr_Name">
+            <th mat-header-cell *matHeaderCellDef> Dr_Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.Dr_Name}} </td>
+          </ng-container>
+          
+          <ng-container matColumnDef="Cr_Name">
+              <th mat-header-cell *matHeaderCellDef> Cr_Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.Cr_Name}} </td>
+            </ng-container>
+
+          <ng-container matColumnDef="Cr_Account">
+            <th mat-header-cell *matHeaderCellDef> Cr_Account </th>
+            <td mat-cell *matCellDef="let element"> {{element.Cr_Account}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Amount">
+            <th mat-header-cell *matHeaderCellDef> Amount </th>
+            <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Curreny">
+            <th mat-header-cell *matHeaderCellDef> Curreny </th>
+            <td mat-cell *matCellDef="let element"> {{element.Curreny}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Curreny_Rate">
+            <th mat-header-cell *matHeaderCellDef> Curreny_Rate </th>
+            <td mat-cell *matCellDef="let element"> {{element.Curreny_Rate}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="_Document">
+            <th mat-header-cell *matHeaderCellDef> Document </th>
+            <td mat-cell *matCellDef="let element"> {{element._Document}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Comment">
+            <th mat-header-cell *matHeaderCellDef> Comment </th>
+            <td mat-cell *matCellDef="let element"> {{element.Comment}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> -->
+      </div>
+      <div class="row">
+        <div class="container" style="text-align: center; margin-top:50px;">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="openTransaction()">
+                <i class="fa fa-plus icon_plus" aria-hidden="true"></i>
+                Transation
+            </button>
+            <div class="modal fade" id="myModal" style="">
+              <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Transation</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Group" value="">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput [matDatepicker]="picker_modal" placeholder="Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker_modal"></mat-datepicker-toggle>
+                        <mat-datepicker #picker_modal></mat-datepicker>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Discription" value="">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Debit</mat-label>
+                        <mat-select>
+                          <mat-option>None</mat-option>
+                          <mat-option value="option1"># 1</mat-option>
+                          <mat-option value="option2"># 2</mat-option>
+                          <mat-option value="option3"># 3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Credit</mat-label>
+                        <mat-select>
+                          <mat-option>None</mat-option>
+                          <mat-option value="option1"># 1</mat-option>
+                          <mat-option value="option2"># 2</mat-option>
+                          <mat-option value="option3"># 3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Amount" value="">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Currency Rate" value="">
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <mat-label>Document</mat-label>
+                        <mat-select>
+                          <mat-option>None</mat-option>
+                          <mat-option value="option1"># 1</mat-option>
+                          <mat-option value="option2"># 2</mat-option>
+                          <mat-option value="option3"># 3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Comment" value="">
+                      </mat-form-field>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+        </div>
+      </div>
+    </div>
+  </mat-tab>
+  
+  <mat-tab label="Account">
+    <div class="container">
+      <div class="row balance_excel">
+        <div class="col-md-9"></div>
+        <div class="col-md-3">
+          <button mat-stroked-button color="primary" class="option_buttons">Import from Excel</button>
+          <button mat-stroked-button color="primary" class="option_buttons" (click)="exportAsXLSX()">Export to Excel</button>
+        </div>
+      </div>
+      <div class="row from_to_datepicker">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker_from" placeholder="Date From">
+            <mat-datepicker-toggle matSuffix [for]="picker_from"></mat-datepicker-toggle>
+            <mat-datepicker #picker_from></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-4">
+          <mat-form-field>
+            <input matInput [matDatepicker]="picker_to" placeholder="Date To">
+            <mat-datepicker-toggle matSuffix [for]="picker_to"></mat-datepicker-toggle>
+            <mat-datepicker #picker_to></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+      <div class="row account_detail">
+        <div class="card">
+          <div class="card-body">
+            <div id="table" class="table-editable">
+              <table class="table table-bordered table-responsive-md table-striped text-center">
+                <tr>
+                  <th class="text-center">Account Number</th>
+                  <th class="text-center">Type</th>
+                  <th class="text-center">Account Name</th>
+                  <th class="text-center">Starting Balance</th>
+                  <th class="text-center">Dr Sum</th>
+                  <th class="text-center">Cr Sum</th>
+                  <th class="text-center">Ending Balance</th>
+                  <th class="text-center">Curreny</th>
+                  <th class="text-center">Comment</th>
+                  <th class="text-center">Remove</th>
+                </tr>
+                <tr *ngFor="let balance of balanceList; let id = index">
+                  <td>
+                    <span (keyup)="changeValue(id, 'Account_Number', $event)" (blur)="updateList(id, 'Account_Number', $event)" contenteditable="true">{{balance.Account_Number}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, '_Tyoe', $event)" (blur)="updateList(id, '_Tyoe', $event)">{{balance._Tyoe}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Account_Name', $event)" (blur)="updateList(id, 'Account_Name', $event)">{{balance.Account_Name}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Starting_Balance', $event)" (blur)="updateList(id, 'Starting_Balance', $event)">{{balance.Starting_Balance}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Dr_Sum', $event)" (blur)="updateList(id, 'Dr_Sum', $event)">{{balance.Dr_Sum}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Cr_Sum', $event)" (blur)="updateList(id, 'Cr_Sum', $event)">{{balance.Cr_Sum}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Ending_Balance', $event)" (blur)="updateList(id, 'Ending_Balance', $event)">{{balance.Ending_Balance}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Curreny', $event)" (blur)="updateList(id, 'Curreny', $event)">{{balance.Curreny}}</span>
+                  </td>
+                  <td>
+                    <span contenteditable="true" (keyup)="changeValue(id, 'Comment', $event)" (blur)="updateList(id, 'Comment', $event)">{{balance.Comment}}</span>
+                  </td>
+                  <td>
+                    <span class="table-remove">
+                      <button class="btn_remove" color="danger" (click)="remove(id)">Remove</button>
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="container" style="text-align: center; margin-top:50px;">
+              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="openTransaction()">
+                  <i class="fa fa-plus icon_plus" aria-hidden="true"></i>
+                  Transation
+              </button>
+              <div class="modal fade" id="myModal" style="">
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Transation</h4>
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Parent Account</mat-label>
+                          <mat-select>
+                            <mat-option>None</mat-option>
+                            <mat-option value="option1"># 1</mat-option>
+                            <mat-option value="option2"># 2</mat-option>
+                            <mat-option value="option3"># 3</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Account Number" value="">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Account Name" value="">
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                          <mat-label>Currency</mat-label>
+                          <mat-select>
+                            <mat-option>None</mat-option>
+                            <mat-option value="option1"># 1</mat-option>
+                            <mat-option value="option2"># 2</mat-option>
+                            <mat-option value="option3"># 3</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Comment" value="">
+                        </mat-form-field>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+          </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+  
+
